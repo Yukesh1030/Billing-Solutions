@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - STACKLY</title>
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body class="dashboard-body">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <img src="assets/Brand-logo.webp" alt="Logo">
+            
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="AdminDashboard.html" class="active"><i class="fa-solid fa-gauge"></i> Overview</a></li>
+            <li><a href="Customers.html"><i class="fa-solid fa-users"></i> Customers</a></li>
+            <li><a href="Invoices.html"><i class="fa-solid fa-file-invoice"></i> Invoices</a></li>
+            <li><a href="Reports.html"><i class="fa-solid fa-chart-line"></i> Reports</a></li>
+            <li><a href="Settings.html"><i class="fa-solid fa-gear"></i> Settings</a></li>
+        </ul>
+        <div class="sidebar-footer">
+            <a href="#" id="logoutBtn" style="color: var(--text-muted); text-decoration: none; display: flex; align-items: center; gap: 10px;">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Wrapper -->
+    <div class="main-wrapper">
+        <!-- Topbar -->
+        <header class="topbar">
+            <button class="menu-toggle"><i class="fa-solid fa-bars"></i></button>
+            <div style="flex:1;"></div>
+            <div class="user-profile">
+                <!-- Using a placeholder pattern or simple avatar since we have no user images -->
+                <div style="width:40px; height:40px; border-radius:50%; background:var(--primary-color); display:flex; align-items:center; justify-content:center; color:var(--bg-dark); font-weight:bold;">A</div>
+                <div class="user-info">
+                    <h4>Admin User</h4>
+                    <p>System Admin</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <h2 style="margin-bottom: 2rem;" data-aos="fade-right">Overview</h2>
+
+            <!-- Stats -->
+            <div class="stat-grid">
+                <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stat-icon"><i class="fa-solid fa-wallet"></i></div>
+                    <div class="stat-details">
+                        <p>Total MRR</p>
+                        <h3>$42,500</h3>
+                    </div>
+                </div>
+                <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-icon"><i class="fa-solid fa-users"></i></div>
+                    <div class="stat-details">
+                        <p>Active Customers</p>
+                        <h3>1,245</h3>
+                    </div>
+                </div>
+                <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-icon"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+                    <div class="stat-details">
+                        <p>Pending Invoices</p>
+                        <h3>$8,200</h3>
+                    </div>
+                </div>
+                <div class="stat-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="stat-icon"><i class="fa-solid fa-chart-pie"></i></div>
+                    <div class="stat-details">
+                        <p>Churn Rate</p>
+                        <h3>1.2%</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Transactions Table -->
+            <div class="table-container" data-aos="fade-up" data-aos-delay="500">
+                <h3>Recent Transactions</h3>
+                <div style="width:100%; overflow-x:auto;">
+                    <table>
+                    <thead>
+                        <tr>
+                            <th>Invoice ID</th>
+                            <th>Customer</th>
+                            <th>Amount</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#INV-00124</td>
+                            <td>Acme Corp</td>
+                            <td>$1,500.00</td>
+                            <td>Aug 02, 2026</td>
+                            <td><span class="status paid">Paid</span></td>
+                        </tr>
+                        <tr>
+                            <td>#INV-00125</td>
+                            <td>Globex Inc</td>
+                            <td>$450.00</td>
+                            <td>Aug 01, 2026</td>
+                            <td><span class="status pending">Pending</span></td>
+                        </tr>
+                        <tr>
+                            <td>#INV-00126</td>
+                            <td>Soylent Corp</td>
+                            <td>$3,200.00</td>
+                            <td>Jul 28, 2026</td>
+                            <td><span class="status paid">Paid</span></td>
+                        </tr>
+                        <tr>
+                            <td>#INV-00127</td>
+                            <td>Initech</td>
+                            <td>$890.00</td>
+                            <td>Jul 25, 2026</td>
+                            <td><span class="status paid">Paid</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+            </div>
+        
+
+            <!-- 1. Quick Actions Panel -->
+            <div class="table-container" style="margin-top: 2rem;" data-aos="fade-up">
+                <h3>Quick Actions</h3>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
+                    <a href="404.html" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Create Invoice</a>
+                    <a href="404.html" class="btn btn-outline"><i class="fa-solid fa-user-plus"></i> Add Customer</a>
+                    <a href="404.html" class="btn btn-outline"><i class="fa-solid fa-file-export"></i> Generate Report</a>
+                </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+                <!-- 2. Recent Activity Feed -->
+                <div class="table-container" data-aos="fade-up">
+                    <h3>Recent Activity</h3>
+                    <ul style="list-style: none; padding: 0; margin-top: 1rem;">
+                        <li style="margin-bottom: 1rem; border-left: 2px solid var(--primary-color); padding-left: 10px;">
+                            <p style="margin: 0; font-size: 0.9rem;"><strong>Acme Corp</strong> paid Invoice #INV-00124</p>
+                            <small style="color: var(--text-muted);">10 mins ago</small>
+                        </li>
+                        <li style="margin-bottom: 1rem; border-left: 2px solid var(--primary-color); padding-left: 10px;">
+                            <p style="margin: 0; font-size: 0.9rem;"><strong>Globex Inc</strong> upgraded to Pro Plan</p>
+                            <small style="color: var(--text-muted);">1 hour ago</small>
+                        </li>
+                        <li style="border-left: 2px solid #ef4444; padding-left: 10px;">
+                            <p style="margin: 0; font-size: 0.9rem;"><strong>Soylent Corp</strong> payment failed</p>
+                            <small style="color: var(--text-muted);">2 hours ago</small>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 3. Top Performing Plans -->
+                <div class="table-container" data-aos="fade-up">
+                    <h3>Top Performing Plans</h3>
+                    <div style="margin-top: 1rem;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span>Pro Plan</span><span>55%</span>
+                        </div>
+                        <div style="width: 100%; height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; margin-bottom: 1rem;">
+                            <div style="width: 55%; height: 100%; background: var(--primary-color); border-radius: 4px;"></div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span>Enterprise</span><span>30%</span>
+                        </div>
+                        <div style="width: 100%; height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; margin-bottom: 1rem;">
+                            <div style="width: 30%; height: 100%; background: var(--primary-color); border-radius: 4px;"></div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span>Basic Plan</span><span>15%</span>
+                        </div>
+                        <div style="width: 100%; height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px;">
+                            <div style="width: 15%; height: 100%; background: var(--primary-color); border-radius: 4px;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Upcoming Renewals -->
+                <div class="table-container" data-aos="fade-up">
+                    <h3>Upcoming Renewals (7 Days)</h3>
+                    <ul style="list-style: none; padding: 0; margin-top: 1rem;">
+                        <li style="display: flex; justify-content: space-between; margin-bottom: 1rem; border-bottom: 1px solid var(--glass-border); padding-bottom: 0.5rem;">
+                            <span>Initech (Enterprise)</span> <span style="color: var(--text-muted);">Aug 10</span>
+                        </li>
+                        <li style="display: flex; justify-content: space-between; margin-bottom: 1rem; border-bottom: 1px solid var(--glass-border); padding-bottom: 0.5rem;">
+                            <span>Umbrella Corp (Pro)</span> <span style="color: var(--text-muted);">Aug 11</span>
+                        </li>
+                        <li style="display: flex; justify-content: space-between;">
+                            <span>Massive Dynamic (Pro)</span> <span style="color: var(--text-muted);">Aug 12</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+</main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+    </script>
+</body>
+</html>

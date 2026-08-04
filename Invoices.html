@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoices - STACKLY</title>
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body class="dashboard-body">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <img src="assets/Brand-logo.webp" alt="Logo">
+            
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="AdminDashboard.html" ><i class="fa-solid fa-gauge"></i> Overview</a></li>
+            <li><a href="Customers.html"><i class="fa-solid fa-users"></i> Customers</a></li>
+            <li><a href="Invoices.html" class="active"><i class="fa-solid fa-file-invoice"></i> Invoices</a></li>
+            <li><a href="Reports.html"><i class="fa-solid fa-chart-line"></i> Reports</a></li>
+            <li><a href="Settings.html"><i class="fa-solid fa-gear"></i> Settings</a></li>
+        </ul>
+        <div class="sidebar-footer">
+            <a href="#" id="logoutBtn" style="color: var(--text-muted); text-decoration: none; display: flex; align-items: center; gap: 10px;">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Wrapper -->
+    <div class="main-wrapper">
+        <!-- Topbar -->
+        <header class="topbar">
+            <button class="menu-toggle"><i class="fa-solid fa-bars"></i></button>
+            <div style="flex:1;"></div>
+            <div class="user-profile">
+                <!-- Using a placeholder pattern or simple avatar since we have no user images -->
+                <div style="width:40px; height:40px; border-radius:50%; background:var(--primary-color); display:flex; align-items:center; justify-content:center; color:var(--bg-dark); font-weight:bold;">A</div>
+                <div class="user-info">
+                    <h4>Admin User</h4>
+                    <p>System Admin</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem;" data-aos="fade-right">
+                <h2>Invoices</h2>
+                <button class="btn btn-primary" style="padding: 0.5rem 1rem;"><i class="fa-solid fa-plus"></i> Create Invoice</button>
+            </div>
+
+            <!-- Stats -->
+            <div class="stat-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-bottom: 2rem;">
+                <div class="stat-card" data-aos="fade-left" data-aos-delay="100">
+                    <div class="stat-details">
+                        <p>Total Outstanding</p>
+                        <h3>$12,450</h3>
+                    </div>
+                </div>
+                <div class="stat-card" data-aos="fade-left" data-aos-delay="200">
+                    <div class="stat-details">
+                        <p>Overdue</p>
+                        <h3 style="color: #ef4444;">$3,200</h3>
+                    </div>
+                </div>
+                <div class="stat-card" data-aos="fade-left" data-aos-delay="300">
+                    <div class="stat-details">
+                        <p>Paid This Month</p>
+                        <h3 style="color: var(--primary-color);">$28,100</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-container" data-aos="fade-up" data-aos-delay="400">
+                <div style="display: flex; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap;">
+                    <select style="padding: 0.5rem 1rem; border-radius: 6px; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); color: var(--text-main);">
+                        <option value="">All Statuses</option>
+                        <option value="paid">Paid</option>
+                        <option value="pending">Pending</option>
+                        <option value="overdue">Overdue</option>
+                    </select>
+                </div>
+                <div style="overflow-x: auto;">
+                    <div style="width:100%; overflow-x:auto;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Invoice ID</th>
+                                <th>Customer</th>
+                                <th>Amount</th>
+                                <th>Issue Date</th>
+                                <th>Due Date</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#INV-00128</td>
+                                <td>Acme Corp</td>
+                                <td>$1,500.00</td>
+                                <td>Aug 05, 2026</td>
+                                <td>Sep 05, 2026</td>
+                                <td><span class="status pending">Pending</span></td>
+                            </tr>
+                            <tr>
+                                <td>#INV-00127</td>
+                                <td>Initech</td>
+                                <td>$890.00</td>
+                                <td>Jul 25, 2026</td>
+                                <td>Aug 25, 2026</td>
+                                <td><span class="status paid">Paid</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                </div>
+            </div>
+
+        
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+                <!-- 1. Aging Summary -->
+                <div class="table-container" data-aos="fade-up">
+                    <h3>Aging Summary</h3>
+                    <div style="margin-top: 1rem; display: flex; flex-direction: column; gap: 1rem;">
+                        <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--glass-border); padding-bottom: 0.5rem;">
+                            <span>1 - 30 Days</span><span>$5,200</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--glass-border); padding-bottom: 0.5rem;">
+                            <span>31 - 60 Days</span><span style="color: #f59e0b;">$1,800</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between;">
+                            <span>60+ Days</span><span style="color: #ef4444;">$1,400</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Failed Payments Alerts -->
+                <div class="table-container" style="border-left: 4px solid #ef4444;" data-aos="fade-up">
+                    <h3 style="color: #ef4444;">Failed Payments Alerts</h3>
+                    <ul style="list-style: none; padding: 0; margin-top: 1rem;">
+                        <li style="margin-bottom: 1rem;">
+                            <p style="margin: 0;"><strong>#INV-00121 (Soylent Corp)</strong></p>
+                            <small style="color: var(--text-muted);">Card declined - Insufficient funds</small>
+                        </li>
+                        <li>
+                            <p style="margin: 0;"><strong>#INV-00098 (Hooli)</strong></p>
+                            <small style="color: var(--text-muted);">Card expired</small>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+                <!-- 3. Draft Invoices -->
+                <div class="table-container" data-aos="fade-up">
+                    <h3>Draft Invoices</h3>
+                    <table style="margin-top: 1rem;">
+                        <thead>
+                            <tr>
+                                <th>Invoice ID</th>
+                                <th>Customer</th>
+                                <th>Amount</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#INV-00129</td>
+                                <td>Stark Ind.</td>
+                                <td>$5,000.00</td>
+                                <td><a href="404.html" style="color: var(--primary-color);">Send</a></td>
+                            </tr>
+                            <tr>
+                                <td>#INV-00130</td>
+                                <td>Wayne Ent.</td>
+                                <td>$2,500.00</td>
+                                <td><a href="404.html" style="color: var(--primary-color);">Send</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                </div>
+
+                <!-- 4. Payment Gateways Status -->
+                <div class="table-container" data-aos="fade-up">
+                    <h3>Payment Gateways</h3>
+                    <div style="display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.05); padding: 1rem; border-radius: 8px;">
+                            <span><i class="fa-brands fa-stripe" style="font-size: 1.5rem; vertical-align: middle; margin-right: 10px;"></i> Stripe</span>
+                            <span class="status paid">Connected</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.05); padding: 1rem; border-radius: 8px;">
+                            <span><i class="fa-brands fa-paypal" style="font-size: 1.5rem; vertical-align: middle; margin-right: 10px;"></i> PayPal</span>
+                            <span class="status paid">Connected</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.05); padding: 1rem; border-radius: 8px;">
+                            <span><i class="fa-solid fa-building-columns" style="font-size: 1.2rem; vertical-align: middle; margin-right: 10px;"></i> Bank Transfer</span>
+                            <span class="status pending">Pending Verification</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+</main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+    </script>
+</body>
+</html>

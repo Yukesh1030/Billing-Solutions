@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - STACKLY</title>
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        .page-hero {
+            padding: 150px 2rem 80px; text-align: left;
+            background: linear-gradient(180deg, var(--bg-dark) 0%, rgba(15,23,42,0.8) 100%), url('assets/contact_cover.webp') center/cover no-repeat;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .contact-cards {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .contact-card {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 2rem;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+        }
+
+        .contact-card i { font-size: 2.5rem; color: var(--primary-color); }
+        .contact-card h3 { margin-bottom: 0.5rem; }
+
+        .contact-form {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 3rem;
+        }
+
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; color: var(--text-muted); }
+        .form-group input, .form-group textarea {
+            width: 100%; padding: 1rem; border-radius: 8px;
+            background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border);
+            color: var(--secondary-color); font-family: 'Poppins', sans-serif;
+            transition: var(--transition);
+        }
+        .form-group input:focus, .form-group textarea:focus { border-color: var(--primary-color); outline: none; }
+        
+        /* Map Mockup */
+        .map-mockup {
+            width: 100%; height: 300px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><rect width="100" height="100" fill="%231e293b"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="%2394a3b8" font-family="sans-serif" font-size="10">Global Offices</text></svg>') repeat;
+            border-radius: 12px; border: 1px solid var(--glass-border); margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .contact-grid { grid-template-columns: 1fr; }
+            .contact-form { padding: 1.5rem; }
+        }
+
+        @media (max-width: 768px) {
+            .page-hero { text-align: center; }
+        }
+        @media (max-width: 768px) { .cards-grid { grid-template-columns: 1fr !important; } }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="nav-brand">
+                <img src="assets/Brand-logo.webp" alt="STACKLY">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="BillingSolutions.html">Billing Solutions</a></li>
+                <li><a href="Pricing.html">Pricing</a></li>
+                <li><a href="Resources.html">Resources</a></li>
+                <li><a href="Contact.html" class="active">Contact</a></li>
+                <li class="mobile-only"><a href="Login.html" class="btn btn-primary" style="padding: 0.5rem 1rem; color: #0f172a;">Login</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="Login.html" class="btn btn-primary desktop-only" style="padding: 0.5rem 1.5rem; color: #0f172a; border-radius: 20px;">Login</a>
+                <button class="hamburger">&#9776;</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="page-hero container">
+        <h1 data-aos="fade-up">Let's Talk</h1>
+        <p data-aos="fade-up" data-aos-delay="100">We're here to help you optimize your billing operations.</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="container" style="padding: 2rem 2rem 6rem;">
+        <div class="contact-grid">
+            <div class="contact-info" data-aos="fade-right">
+                <h2>Get in Touch</h2>
+                <p style="margin-bottom: 2rem;">Reach out to our sales or support teams.</p>
+                <div class="contact-cards">
+                    <div class="contact-card">
+                        <i class="fa-solid fa-phone"></i>
+                        <div>
+                            <h3>Phone</h3>
+                            <p>+1 (800) 123-4567</p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <i class="fa-solid fa-envelope"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <p>hello@stackly.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <i class="fa-solid fa-building"></i>
+                        <div>
+                            <h3>HQ Office</h3>
+                            <p>123 Finance Avenue, NY 10001</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-form-container" data-aos="fade-left">
+                <form class="contact-form redirect-404">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" required placeholder="John Doe">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Work Email</label>
+                        <input type="email" id="email" required placeholder="john@company.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" required placeholder="How can we help?">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" rows="4" required placeholder="Tell us more about your needs..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Locations -->
+    <section class="container" style="padding: 4rem 2rem;" data-aos="fade-up">
+        <h2 class="text-center">Our Global Presence</h2>
+        <div class="map-mockup"></div>
+    </section>
+
+    
+    <!-- Support Channels Breakdown -->
+    <section class="container" style="padding: 4rem 2rem;">
+        <div class="text-center" data-aos="fade-up">
+            <h2>Dedicated Support Channels</h2>
+            <p>Reach out to the right team for faster resolution.</p>
+        </div>
+        <div class="cards-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem;">
+            <div class="glass-card" data-aos="fade-up" data-aos-delay="100" style="padding: 2rem; text-align: center;">
+                <i class="fa-solid fa-screwdriver-wrench" style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 1rem;"></i>
+                <h3 style="margin-bottom: 0.5rem;">Technical Support</h3>
+                <p style="font-size: 0.9rem; margin-bottom: 1rem; color: var(--text-muted);">API integration, webhooks, and dashboard bugs.</p>
+                <a href="404.html" style="color: #fff; font-weight: 500; text-decoration: none;">tech@stackly.com</a>
+            </div>
+            <div class="glass-card" data-aos="fade-up" data-aos-delay="200" style="padding: 2rem; text-align: center;">
+                <i class="fa-solid fa-file-invoice-dollar" style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 1rem;"></i>
+                <h3 style="margin-bottom: 0.5rem;">Billing & Accounts</h3>
+                <p style="font-size: 0.9rem; margin-bottom: 1rem; color: var(--text-muted);">Subscription upgrades, prorations, and refunds.</p>
+                <a href="404.html" style="color: #fff; font-weight: 500; text-decoration: none;">billing@stackly.com</a>
+            </div>
+            <div class="glass-card" data-aos="fade-up" data-aos-delay="300" style="padding: 2rem; text-align: center;">
+                <i class="fa-solid fa-handshake" style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 1rem;"></i>
+                <h3 style="margin-bottom: 0.5rem;">Sales & Enterprise</h3>
+                <p style="font-size: 0.9rem; margin-bottom: 1rem; color: var(--text-muted);">Volume discounts, custom SLA, and partnerships.</p>
+                <a href="404.html" style="color: #fff; font-weight: 500; text-decoration: none;">sales@stackly.com</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join our Community -->
+    <section class="container" style="padding: 4rem 2rem;">
+        <div class="glass-card" data-aos="zoom-in" style="padding: 4rem 2rem; text-align: center; background: linear-gradient(135deg, rgba(30,41,59,0.9), rgba(88,101,242,0.1)); border-color: rgba(88,101,242,0.3);">
+            <i class="fa-brands fa-discord" style="font-size: 4rem; color: #5865F2; margin-bottom: 1rem;"></i>
+            <h2 style="margin-bottom: 1rem;">Join the Developer Community</h2>
+            <p style="max-width: 600px; margin: 0 auto 2rem;">Connect with over 10,000 developers building on STACKLY. Get peer-to-peer help, share your projects, and stay updated on API changes.</p>
+            <a href="#" class="btn btn-primary" style="background: #5865F2; border-color: #5865F2; color: #fff;">Join our Discord</a>
+        </div>
+    </section>
+
+    <!-- Pre-Contact FAQ -->
+    <section class="container" style="padding: 4rem 2rem;">
+        <div class="text-center" data-aos="fade-up">
+            <h2>Before You Ask...</h2>
+            <p>A few quick answers to save you an email.</p>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 3rem;">
+            <div class="glass-card" data-aos="fade-up" data-aos-delay="100" style="padding: 1.5rem;">
+                <h4 style="margin-bottom: 0.5rem;"><i class="fa-solid fa-clock" style="color: var(--primary-color);"></i> What are your support hours?</h4>
+                <p style="font-size: 0.9rem; color: var(--text-muted);">Our Tier 1 support team is available 24/7. Technical engineers are online Monday - Friday, 9 AM to 6 PM EST.</p>
+            </div>
+            <div class="glass-card" data-aos="fade-up" data-aos-delay="200" style="padding: 1.5rem;">
+                <h4 style="margin-bottom: 0.5rem;"><i class="fa-solid fa-phone" style="color: var(--primary-color);"></i> Do you offer phone support?</h4>
+                <p style="font-size: 0.9rem; color: var(--text-muted);">Phone support is exclusively available for Enterprise customers. All other plans receive priority email and live chat support.</p>
+            </div>
+            <div class="glass-card" data-aos="fade-up" data-aos-delay="300" style="padding: 1.5rem;">
+                <h4 style="margin-bottom: 0.5rem;"><i class="fa-solid fa-ticket" style="color: var(--primary-color);"></i> How fast will I get a reply?</h4>
+                <p style="font-size: 0.9rem; color: var(--text-muted);">We aim to reply to all inquiries within 2 hours during business hours, and within 12 hours on weekends.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col footer-brand">
+                    <img src="assets/Brand-logo.webp" alt="STACKLY Logo">
+                    <p>Empowering businesses with intelligent billing and revenue management solutions.</p>
+                    <div class="social-links">
+                        <a href="404.html"><img src="assets/footer-socialmedia-icon--facebook.webp" alt="Facebook"></a>
+                        <a href="404.html"><img src="assets/footer-socialmedia-icon-twitter.webp" alt="Twitter"></a>
+                        <a href="404.html"><img src="assets/footer-socialmedia-icon-instagram.webp" alt="Instagram"></a>
+                        <a href="404.html"><img src="assets/footer-socialmedia-icon-linkedin.webp" alt="LinkedIn"></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="404.html">About Us</a></li>
+                        <li><a href="404.html">Careers</a></li>
+                        <li><a href="404.html">Partners</a></li>
+                        <li><a href="Contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="BillingSolutions.html">Billing Solutions</a></li>
+                        <li><a href="Pricing.html">Pricing</a></li>
+                        <li><a href="Resources.html">Resources</a></li>
+                        <li><a href="Contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Newsletter</h4>
+                    <p>Subscribe for product updates.</p>
+                    <form class="newsletter-form redirect-404">
+                        <input type="email" placeholder="Email Address" required>
+                        <button type="submit" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 STACKLY. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="404.html">Privacy Policy</a>
+                    <a href="404.html">Terms of Service</a>
+                    <a href="404.html">Support</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+</body>
+</html>

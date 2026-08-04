@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Invoices - STACKLY</title>
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body class="dashboard-body">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <img src="assets/Brand-logo.webp" alt="Logo">
+            
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="ClientDashboard.html" ><i class="fa-solid fa-house"></i> Home</a></li>
+            <li><a href="ClientInvoices.html" class="active"><i class="fa-solid fa-file-invoice"></i> My Invoices</a></li>
+            <li><a href="ClientPaymentMethods.html"><i class="fa-solid fa-credit-card"></i> Payment Methods</a></li>
+            <li><a href="ClientSubscriptions.html"><i class="fa-solid fa-rotate"></i> Subscriptions</a></li>
+            <li><a href="ClientProfile.html"><i class="fa-solid fa-user"></i> Profile</a></li>
+        </ul>
+        <div class="sidebar-footer">
+            <a href="#" id="logoutBtn" style="color: var(--text-muted); text-decoration: none; display: flex; align-items: center; gap: 10px;">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Wrapper -->
+    <div class="main-wrapper">
+        <!-- Topbar -->
+        <header class="topbar">
+            <button class="menu-toggle"><i class="fa-solid fa-bars"></i></button>
+            <div style="flex:1;"></div>
+            <div class="user-profile">
+                <!-- Placeholder avatar -->
+                <div style="width:40px; height:40px; border-radius:50%; background:var(--primary-color); display:flex; align-items:center; justify-content:center; color:var(--bg-dark); font-weight:bold;">C</div>
+                <div class="user-info">
+                    <h4>John Doe</h4>
+                    <p>Acme Corp</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <h2 style="margin-bottom: 2rem;" data-aos="fade-right">My Invoices</h2>
+
+            <!-- 1. Year-to-Date Spending -->
+            <div class="stat-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-bottom: 2rem;">
+                <div class="stat-card" data-aos="fade-left" data-aos-delay="100">
+                    <div class="stat-details">
+                        <p>Total Spent (YTD)</p>
+                        <h3>$6,750</h3>
+                    </div>
+                </div>
+                <div class="stat-card" data-aos="fade-left" data-aos-delay="200">
+                    <div class="stat-details">
+                        <p>Next Estimated Bill</p>
+                        <h3 style="color: var(--primary-color);">$450</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+                
+                <!-- 2. Upcoming Invoice Preview -->
+                <div class="table-container" data-aos="fade-up">
+                    <h3>Next Invoice Preview</h3>
+                    <div style="background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 8px; margin-top: 1rem;">
+                        <div style="display: flex; justify-content: space-between; border-bottom: 1px dashed var(--glass-border); padding-bottom: 0.5rem; margin-bottom: 0.5rem;">
+                            <span>Pro Plan Base</span><span>$450.00</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; border-bottom: 1px dashed var(--glass-border); padding-bottom: 0.5rem; margin-bottom: 1rem;">
+                            <span>API Overage</span><span>$0.00</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; font-weight: bold; font-size: 1.2rem;">
+                            <span>Estimated Total</span><span style="color: var(--primary-color);">$450.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Dispute / Support Box -->
+                <div class="table-container" data-aos="fade-up">
+                    <h3>Need Help?</h3>
+                    <div style="margin-top: 1rem;">
+                        <p style="color: var(--text-muted); margin-bottom: 1rem;">Notice an issue with your billing statement? Our support team is here to help.</p>
+                        <a href="404.html" class="btn btn-outline" style="width: 100%;"><i class="fa-solid fa-headset"></i> Contact Billing Support</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- 4. Download History Table -->
+            <div class="table-container" style="margin-top: 2rem;" data-aos="fade-up">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                    <h3 style="margin: 0;">Full Invoice History</h3>
+                    <a href="404.html" class="btn btn-primary" style="padding: 0.4rem 1rem; font-size: 0.85rem;"><i class="fa-solid fa-download"></i> Export All (CSV)</a>
+                </div>
+                <div style="overflow-x: auto;">
+                    <div style="width:100%; overflow-x:auto;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Invoice ID</th>
+                                <th>Date Issued</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                                <th>Document</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#INV-00125</td>
+                                <td>Aug 01, 2026</td>
+                                <td>$450.00</td>
+                                <td><span class="status pending">Pending</span></td>
+                                <td><a href="404.html" style="color:var(--text-muted);"><i class="fa-solid fa-file-pdf"></i> Download</a></td>
+                            </tr>
+                            <tr>
+                                <td>#INV-00110</td>
+                                <td>Jul 01, 2026</td>
+                                <td>$450.00</td>
+                                <td><span class="status paid">Paid</span></td>
+                                <td><a href="404.html" style="color:var(--text-muted);"><i class="fa-solid fa-file-pdf"></i> Download</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/dashboard.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init({ duration: 800, once: true });</script>
+</body>
+</html>

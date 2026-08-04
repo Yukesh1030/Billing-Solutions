@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billing Solutions - STACKLY</title>
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        .page-hero {
+            padding: 150px 2rem 80px;
+            text-align: left;
+            background: linear-gradient(180deg, var(--bg-dark) 0%, rgba(15,23,42,0.8) 100%), url('assets/billing_cover.webp') center/cover no-repeat;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .action-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            cursor: pointer;
+        }
+
+        .action-card i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .action-card:hover i {
+            transform: scale(1.1);
+        }
+
+        /* Charts/Analytics mock section */
+        .analytics-section {
+            padding: 6rem 2rem;
+            background: var(--bg-card);
+        }
+
+        .chart-mockup {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(to right, rgba(46,204,113,0.1) 10%, rgba(46,204,113,0.5) 50%, rgba(46,204,113,0.1) 90%);
+            border-radius: 12px;
+            margin-top: 2rem;
+            border: 1px solid var(--glass-border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chart-mockup::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; width: 100%; height: 2px;
+            background: var(--primary-color);
+        }
+
+        /* Accordion */
+        .faq-section {
+            padding: 6rem 2rem;
+        }
+
+        .accordion {
+            max-width: 800px;
+            margin: 3rem auto 0;
+        }
+
+        .accordion-item {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .accordion-header {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .accordion-content {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .accordion-content p {
+            padding-bottom: 1.5rem;
+        }
+
+        .accordion-item.active .accordion-content {
+            max-height: 200px;
+        }
+
+        .accordion-item.active .accordion-header {
+            color: var(--primary-color);
+        }
+        
+        .accordion-item.active .accordion-header i {
+            transform: rotate(180deg);
+        }
+
+
+        @media (max-width: 768px) {
+            .page-hero { text-align: center; }
+            .cards-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar (Same as index) -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="nav-brand">
+                <img src="assets/Brand-logo.webp" alt="STACKLY">
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="BillingSolutions.html" class="active">Billing Solutions</a></li>
+                <li><a href="Pricing.html">Pricing</a></li>
+                <li><a href="Resources.html">Resources</a></li>
+                <li><a href="Contact.html">Contact</a></li>
+                <li class="mobile-only"><a href="Login.html" class="btn btn-primary" style="padding: 0.5rem 1rem; color: #0f172a;">Login</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="Login.html" class="btn btn-primary desktop-only" style="padding: 0.5rem 1.5rem; color: #0f172a; border-radius: 20px;">Login</a>
+                <button class="hamburger">&#9776;</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="page-hero container">
+        <h1 data-aos="fade-up">Modern Billing Platform</h1>
+        <p data-aos="fade-up" data-aos-delay="100">Everything from creating your first invoice to advanced subscription management.</p>
+    </section>
+
+    <!-- Invoice Management / Cards -->
+    <section class="container" style="padding: 4rem 2rem;">
+        <div class="text-center" data-aos="fade-up">
+            <h2>Invoice Management</h2>
+            <p>Seamlessly handle your invoices from start to finish.</p>
+        </div>
+        <div class="cards-grid">
+            <div class="glass-card action-card" data-aos="zoom-in" data-aos-delay="100">
+                <i class="fa-solid fa-file-circle-plus"></i>
+                <h3>Create Invoice</h3>
+                <p>Generate professional invoices in seconds.</p>
+            </div>
+            <div class="glass-card action-card" data-aos="zoom-in" data-aos-delay="200">
+                <i class="fa-solid fa-paper-plane"></i>
+                <h3>Send Invoice</h3>
+                <p>Automate delivery via email and SMS.</p>
+            </div>
+            <div class="glass-card action-card" data-aos="zoom-in" data-aos-delay="300">
+                <i class="fa-solid fa-file-pdf"></i>
+                <h3>Download PDF</h3>
+                <p>Export for your records instantly.</p>
+            </div>
+            <div class="glass-card action-card" data-aos="zoom-in" data-aos-delay="400">
+                <i class="fa-solid fa-print"></i>
+                <h3>Print Invoice</h3>
+                <p>Ready-to-print formats available.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Features -->
+    <section class="container" style="padding: 4rem 2rem;">
+        <div class="cards-grid">
+            <div class="glass-card action-card" data-aos="fade-up">
+                <i class="fa-solid fa-rotate"></i>
+                <h3>Subscription Billing</h3>
+                <p>Handle upgrades, downgrades, and prorations effortlessly.</p>
+            </div>
+            <div class="glass-card action-card" data-aos="fade-up" data-aos-delay="100">
+                <i class="fa-solid fa-calculator"></i>
+                <h3>Tax & GST Management</h3>
+                <p>Automated tax rates based on customer location.</p>
+            </div>
+            <div class="glass-card action-card" data-aos="fade-up" data-aos-delay="200">
+                <i class="fa-brands fa-cc-stripe"></i>
+                <h3>Payment Gateway</h3>
+                <p>Integrate with Stripe, PayPal, Razorpay seamlessly.</p>
+            </div>
+            <div class="glass-card action-card" data-aos="fade-up" data-aos-delay="300">
+                <i class="fa-solid fa-chart-bar"></i>
+                <h3>Smart Reports</h3>
+                <p>Export custom ledgers for accounting.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Analytics & Charts Section -->
+    <section class="analytics-section">
+        <div class="container text-center">
+            <h2 data-aos="fade-up">Deep Analytics</h2>
+            <p data-aos="fade-up">Visualize your cash flow and MRR growth in real-time.</p>
+            <div class="chart-mockup" data-aos="zoom-in" data-aos-delay="200">
+                <!-- CSS Mock chart representation -->
+                <div style="position:absolute; bottom:10px; left:10%; width:10%; height:40%; background:rgba(255,255,255,0.1); border-radius:4px 4px 0 0;"></div>
+                <div style="position:absolute; bottom:10px; left:30%; width:10%; height:60%; background:rgba(255,255,255,0.2); border-radius:4px 4px 0 0;"></div>
+                <div style="position:absolute; bottom:10px; left:50%; width:10%; height:75%; background:rgba(46,204,113,0.5); border-radius:4px 4px 0 0;"></div>
+                <div style="position:absolute; bottom:10px; left:70%; width:10%; height:90%; background:var(--primary-color); border-radius:4px 4px 0 0;"></div>
+            </div>
+        </div>
+    </section>
+
+    
+    <!-- Integration Partners -->
+    <section class="container" style="padding: 4rem 2rem; text-align: center;">
+        <h2 data-aos="fade-up">Works With Your Favorite Tools</h2>
+        <p data-aos="fade-up" data-aos-delay="100">Seamless integrations with the software you already use.</p>
+        <div class="cards-grid" style="margin-top: 2rem;">
+            <div class="glass-card" data-aos="zoom-in" data-aos-delay="100" style="padding: 1.5rem; display: flex; justify-content: center; align-items: center; font-size: 2rem; color: #fff;">
+                <i class="fa-brands fa-stripe"></i>
+            </div>
+            <div class="glass-card" data-aos="zoom-in" data-aos-delay="200" style="padding: 1.5rem; display: flex; justify-content: center; align-items: center; font-size: 2rem; color: #fff;">
+                <i class="fa-brands fa-paypal"></i>
+            </div>
+            <div class="glass-card" data-aos="zoom-in" data-aos-delay="300" style="padding: 1.5rem; display: flex; justify-content: center; align-items: center; font-size: 2rem; color: #fff;">
+                <i class="fa-brands fa-salesforce"></i>
+            </div>
+            <div class="glass-card" data-aos="zoom-in" data-aos-delay="400" style="padding: 1.5rem; display: flex; justify-content: center; align-items: center; font-size: 2rem; color: #fff;">
+                <i class="fa-brands fa-aws"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security & Compliance -->
+    <section class="container" style="padding: 4rem 2rem;">
+        <div class="text-center" data-aos="fade-up">
+            <h2>Bank-Grade Security</h2>
+            <p>Your financial data is protected by the highest industry standards.</p>
+        </div>
+        <div class="cards-grid">
+            <div class="glass-card action-card" data-aos="fade-up" data-aos-delay="100">
+                <i class="fa-solid fa-lock"></i>
+                <h3>End-to-End Encryption</h3>
+                <p>256-bit SSL encryption for all data in transit and at rest.</p>
+            </div>
+            <div class="glass-card action-card" data-aos="fade-up" data-aos-delay="200">
+                <i class="fa-solid fa-shield-check"></i>
+                <h3>PCI-DSS Compliant</h3>
+                <p>Fully compliant with global payment card industry standards.</p>
+            </div>
+            <div class="glass-card action-card" data-aos="fade-up" data-aos-delay="300">
+                <i class="fa-solid fa-users-gear"></i>
+                <h3>Role-Based Access</h3>
+                <p>Granular control over who can view or modify financial records.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Performance Metrics -->
+    <section class="container" style="padding: 4rem 2rem;">
+        <div class="split-grid" style="display: grid; gap: 2rem; align-items: center;">
+            <div data-aos="fade-right">
+                <h2>Real Results. Real Growth.</h2>
+                <p>Companies switching to STACKLY see immediate improvements in operational efficiency and revenue recovery.</p>
+                <ul class="split-list" style="list-style: none; padding: 0; margin-top: 1.5rem;">
+                    <li style="margin-bottom: 1rem;"><i class="fa-solid fa-arrow-trend-up" style="color: var(--primary-color);"></i> Increase recovered revenue by 12%</li>
+                    <li style="margin-bottom: 1rem;"><i class="fa-solid fa-clock" style="color: var(--primary-color);"></i> Save an average of 40 hours per month</li>
+                    <li><i class="fa-solid fa-bolt" style="color: var(--primary-color);"></i> Reduce manual billing errors to zero</li>
+                </ul>
+            </div>
+            <div class="glass-card" data-aos="fade-left" style="padding: 3rem 2rem; text-align: center; border-color: var(--primary-color);">
+                <div style="font-size: 4rem; font-weight: bold; color: var(--primary-color);">85%</div>
+                <h3 style="margin-bottom: 0;">Reduction in Payment Failures</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Accordion -->
+    <section class="faq-section container">
+        <div class="text-center" data-aos="fade-up">
+            <h2>Frequently Asked Questions</h2>
+        </div>
+        <div class="accordion" data-aos="fade-up" data-aos-delay="100">
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    How long does setup take? <i class="fa-solid fa-chevron-down transition"></i>
+                </div>
+                <div class="accordion-content">
+                    <p>You can start creating invoices within 5 minutes of signing up. Full integration takes just a few hours.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    Do you support multiple currencies? <i class="fa-solid fa-chevron-down transition"></i>
+                </div>
+                <div class="accordion-content">
+                    <p>Yes, STACKLY supports over 135 currencies worldwide.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    Is my financial data secure? <i class="fa-solid fa-chevron-down transition"></i>
+                </div>
+                <div class="accordion-content">
+                    <p>Absolutely. We use bank-level 256-bit encryption and are PCI-DSS compliant.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="container" style="padding: 6rem 2rem; text-align: center;" data-aos="zoom-in">
+        <h2>Ready to streamline your billing?</h2>
+        <br>
+        <a href="Signup.html" class="btn btn-primary">Start Your Free Trial</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col footer-brand">
+                    <img src="assets/Brand-logo.webp" alt="STACKLY Logo">
+                    <p>Empowering businesses with intelligent billing and revenue management solutions.</p>
+                    <div class="social-links">
+                        <a href="404.html"><img src="assets/footer-socialmedia-icon--facebook.webp" alt="Facebook"></a>
+                        <a href="404.html"><img src="assets/footer-socialmedia-icon-twitter.webp" alt="Twitter"></a>
+                        <a href="404.html"><img src="assets/footer-socialmedia-icon-instagram.webp" alt="Instagram"></a>
+                        <a href="404.html"><img src="assets/footer-socialmedia-icon-linkedin.webp" alt="LinkedIn"></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="404.html">About Us</a></li>
+                        <li><a href="404.html">Careers</a></li>
+                        <li><a href="404.html">Partners</a></li>
+                        <li><a href="Contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="BillingSolutions.html">Billing Solutions</a></li>
+                        <li><a href="Pricing.html">Pricing</a></li>
+                        <li><a href="Resources.html">Resources</a></li>
+                        <li><a href="Contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Newsletter</h4>
+                    <p>Subscribe for product updates.</p>
+                    <form class="newsletter-form redirect-404">
+                        <input type="email" placeholder="Email Address" required>
+                        <button type="submit" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 STACKLY. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="404.html">Privacy Policy</a>
+                    <a href="404.html">Terms of Service</a>
+                    <a href="404.html">Support</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+    <script>
+        // Accordion Logic
+        document.querySelectorAll('.accordion-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const item = header.parentElement;
+                // Close others
+                document.querySelectorAll('.accordion-item').forEach(other => {
+                    if (other !== item) other.classList.remove('active');
+                });
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

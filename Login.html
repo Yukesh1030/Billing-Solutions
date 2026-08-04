@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - STACKLY</title>
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: linear-gradient(rgba(10, 15, 26, 0.8), rgba(10, 15, 26, 0.9)), url('assets/billing_cover.webp') center/cover no-repeat;
+            padding: 5rem 1rem 2rem 1rem; /* Prevent cutoff */
+        }
+
+        .back-btn {
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            color: var(--secondary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .back-btn:hover { color: var(--primary-color); }
+
+        .auth-container {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 3rem;
+            width: 100%;
+            max-width: 450px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .auth-header { text-align: center; margin-bottom: 2rem; }
+        .auth-header img { height: 40px; margin-bottom: 1rem; }
+        
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; color: var(--text-muted); font-size: 0.9rem; }
+        .form-group input, .form-group select {
+            width: 100%; padding: 0.75rem 1rem; border-radius: 8px;
+            background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border);
+            color: var(--secondary-color); font-family: 'Poppins', sans-serif;
+            transition: var(--transition);
+        }
+        .form-group input:focus, .form-group select:focus { border-color: var(--primary-color); outline: none; }
+        
+        /* Select option colors to fix readability in some browsers */
+        .form-group select option { background: var(--bg-card); color: var(--secondary-color); }
+
+        .forgot-link {
+            display: block; text-align: right; color: var(--primary-color);
+            text-decoration: none; font-size: 0.85rem; margin-bottom: 1.5rem;
+        }
+
+        .auth-submit-btn {
+            display: block !important;
+            width: 100% !important;
+            padding: 1rem !important;
+            background-color: var(--primary-color) !important;
+            color: #0f172a !important;
+            font-size: 1.1rem !important;
+            font-weight: 700 !important;
+            text-align: center !important;
+            border-radius: 8px !important;
+            border: none !important;
+            cursor: pointer !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+            margin-top: 1rem !important;
+            transition: all 0.3s ease !important;
+        }
+        .auth-submit-btn:hover {
+            background-color: #4ade80 !important;
+        }
+
+        .auth-footer { text-align: center; margin-top: 1.5rem; font-size: 0.9rem; color: var(--text-muted); }
+        .auth-footer a { color: var(--primary-color); text-decoration: none; font-weight: 600; }
+
+        @media (max-width: 768px) {
+            body { align-items: flex-start; } /* Fix flexbox cutoff */
+            .back-btn { top: 1rem; left: 1rem; position: absolute; }
+            .auth-container { padding: 2rem; margin-top: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+
+    <div class="auth-container">
+        <div class="auth-header">
+            <img src="assets/Brand-logo.webp" alt="STACKLY">
+            <h2>Welcome Back</h2>
+            <p>Log in to manage your billing.</p>
+        </div>
+
+        <form id="loginForm" class="auth-form">
+            <div class="form-group">
+                <label for="loginAs">Login As</label>
+                <select id="loginAs">
+                    <option value="Admin">Admin</option>
+                    <option value="Client">Client</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" placeholder="you@company.com">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="••••••••">
+            </div>
+
+            <a href="404.html" class="forgot-link">Forgot Password?</a>
+
+            <button type="submit" class="auth-submit-btn">Log In</button>
+        </form>
+
+        <div class="auth-footer">
+            Don't have an account? <a href="Signup.html">Create an account</a>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

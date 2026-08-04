@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources - STACKLY</title>
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        .page-hero {
+            padding: 150px 2rem 80px; text-align: left;
+            background: linear-gradient(180deg, var(--bg-dark) 0%, rgba(15,23,42,0.8) 100%), url('assets/resources_cover.webp') center/cover no-repeat;
+        }
+        
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .resource-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .resource-card:hover { transform: translateY(-5px); border-color: var(--primary-color); }
+        
+        .card-img {
+            height: 200px;
+            background: #1e293b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: rgba(46,204,113,0.3);
+            position: relative;
+        }
+
+        .card-body { padding: 1.5rem; }
+        .card-body h3 { margin-bottom: 0.5rem; }
+        .card-body a { color: var(--primary-color); text-decoration: none; font-weight: 500; display: inline-flex; align-items: center; gap: 5px; margin-top: 1rem; }
+        
+
+        @media (max-width: 768px) {
+            .page-hero { text-align: center; }
+            .resource-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 768px) { .split-grid { grid-template-columns: 1fr !important; } }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="nav-brand">
+                <img src="assets/Brand-logo.webp" alt="STACKLY">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="BillingSolutions.html">Billing Solutions</a></li>
+                <li><a href="Pricing.html">Pricing</a></li>
+                <li><a href="Resources.html" class="active">Resources</a></li>
+                <li><a href="Contact.html">Contact</a></li>
+                <li class="mobile-only"><a href="Login.html" class="btn btn-primary" style="padding: 0.5rem 1rem; color: #0f172a;">Login</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="Login.html" class="btn btn-primary desktop-only" style="padding: 0.5rem 1.5rem; color: #0f172a; border-radius: 20px;">Login</a>
+                <button class="hamburger">&#9776;</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="page-hero container">
+        <h1 data-aos="fade-up">Billing Knowledge Hub</h1>
+        <p data-aos="fade-up" data-aos-delay="100">Guides, tutorials, and insights to help you scale.</p>
+    </section>
+
+    <!-- Resources Grid -->
+    <section class="container" style="padding: 2rem 2rem 6rem;">
+        <div class="resource-grid">
+            <!-- Documentation -->
+            <div class="resource-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="card-img"><i class="fa-solid fa-book-open"></i></div>
+                <div class="card-body">
+                    <h3>Documentation</h3>
+                    <p>Detailed guides on configuring and managing your billing setup.</p>
+                    <a href="404.html">Read Docs <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- API Guides -->
+            <div class="resource-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="card-img"><i class="fa-solid fa-code"></i></div>
+                <div class="card-body">
+                    <h3>API Reference</h3>
+                    <p>Integrate STACKLY into your own applications with our REST API.</p>
+                    <a href="404.html">View API Docs <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Video Tutorials -->
+            <div class="resource-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="card-img"><i class="fa-brands fa-youtube"></i></div>
+                <div class="card-body">
+                    <h3>Video Tutorials</h3>
+                    <p>Step-by-step video guides on advanced features.</p>
+                    <a href="404.html">Watch Videos <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Blog -->
+            <div class="resource-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="card-img"><i class="fa-solid fa-newspaper"></i></div>
+                <div class="card-body">
+                    <h3>Engineering Blog</h3>
+                    <p>Articles on billing architecture and payment gateway routing.</p>
+                    <a href="404.html">Read Blog <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Case Studies -->
+            <div class="resource-card" data-aos="fade-up" data-aos-delay="500">
+                <div class="card-img"><i class="fa-solid fa-briefcase"></i></div>
+                <div class="card-body">
+                    <h3>Case Studies</h3>
+                    <p>How top startups scaled their revenue with STACKLY.</p>
+                    <a href="404.html">View Case Studies <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+             <!-- Newsletter -->
+             <div class="resource-card" data-aos="fade-up" data-aos-delay="600">
+                <div class="card-img"><i class="fa-solid fa-envelope-open-text"></i></div>
+                <div class="card-body">
+                    <h3>Subscribe</h3>
+                    <p>Get the latest updates delivered directly to your inbox.</p>
+                    <form class="newsletter-form redirect-404" style="margin-top:1rem;">
+                        <input type="email" placeholder="Email" required style="width:70%;">
+                        <button type="submit" class="btn btn-primary" style="padding:0.5rem 1rem;">Go</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <!-- Video Tutorials & Webinars -->
+    <section class="container" style="padding: 4rem 2rem;">
+        <h2 data-aos="fade-up">Video Tutorials & Webinars</h2>
+        <p data-aos="fade-up" data-aos-delay="100">Learn visually with our step-by-step masterclasses.</p>
+        <div class="resource-grid" style="margin-top: 2rem;">
+            <div class="resource-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="card-img" style="position: relative; background: url('assets/contact_cover.webp') center/cover;">
+                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5);"></div>
+                    <i class="fa-solid fa-circle-play" style="position: relative; z-index: 1; color: var(--primary-color);"></i>
+                </div>
+                <div class="card-body">
+                    <h3>Getting Started with STACKLY</h3>
+                    <p style="font-size: 0.9rem; margin-bottom: 1rem;">A complete 15-minute walkthrough of the dashboard and first invoice creation.</p>
+                    <a href="#">Watch Video &rarr;</a>
+                </div>
+            </div>
+            <div class="resource-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="card-img" style="position: relative; background: url('assets/pricing_cover.webp') center/cover;">
+                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5);"></div>
+                    <i class="fa-solid fa-circle-play" style="position: relative; z-index: 1; color: var(--primary-color);"></i>
+                </div>
+                <div class="card-body">
+                    <h3>Advanced Tax Configurations</h3>
+                    <p style="font-size: 0.9rem; margin-bottom: 1rem;">Learn how to set up multi-region VAT and GST compliance automatically.</p>
+                    <a href="#">Watch Webinar &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Downloadable Guides -->
+    <section class="container" style="padding: 4rem 2rem;">
+        <h2 data-aos="fade-up">Downloadable Guides</h2>
+        <div class="resource-grid" style="margin-top: 2rem;">
+            <div class="glass-card" data-aos="fade-up" data-aos-delay="100" style="padding: 2rem; display: flex; align-items: flex-start; gap: 1.5rem;">
+                <i class="fa-solid fa-file-pdf" style="font-size: 2.5rem; color: #e74c3c;"></i>
+                <div>
+                    <h4 style="margin-bottom: 0.5rem;">SaaS Metrics Cheat Sheet</h4>
+                    <p style="font-size: 0.85rem; margin-bottom: 1rem; color: var(--text-muted);">Formulas for MRR, Churn, LTV, and CAC.</p>
+                    <a href="#" class="btn btn-outline" style="padding: 0.3rem 1rem; font-size: 0.8rem;">Download PDF</a>
+                </div>
+            </div>
+            <div class="glass-card" data-aos="fade-up" data-aos-delay="200" style="padding: 2rem; display: flex; align-items: flex-start; gap: 1.5rem;">
+                <i class="fa-solid fa-file-pdf" style="font-size: 2.5rem; color: #e74c3c;"></i>
+                <div>
+                    <h4 style="margin-bottom: 0.5rem;">Dunning Management Strategy</h4>
+                    <p style="font-size: 0.85rem; margin-bottom: 1rem; color: var(--text-muted);">Best practices for recovering failed payments.</p>
+                    <a href="#" class="btn btn-outline" style="padding: 0.3rem 1rem; font-size: 0.8rem;">Download PDF</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Developer API Spotlight -->
+    <section class="container" style="padding: 4rem 2rem;">
+        <div class="split-grid" style="display: grid; gap: 3rem; align-items: center;">
+            <div data-aos="fade-right">
+                <h2>Built for Developers</h2>
+                <p>Integrate STACKLY directly into your app using our comprehensive REST API and webhooks. SDKs available for Node, Python, Ruby, and Go.</p>
+                <a href="#" class="btn btn-primary" style="margin-top: 1rem;">View API Docs</a>
+            </div>
+            <div class="glass-card" data-aos="fade-left" style="padding: 0; overflow: hidden; background: #0f172a; border-color: rgba(46,204,113,0.3);">
+                <div style="background: rgba(255,255,255,0.05); padding: 0.5rem 1rem; font-family: monospace; font-size: 0.8rem; color: var(--text-muted); border-bottom: 1px solid rgba(255,255,255,0.05);">POST /v1/subscriptions</div>
+                <div style="padding: 1.5rem; font-family: monospace; font-size: 0.9rem; line-height: 1.5;">
+                    <span style="color: #c678dd;">const</span> stripe = <span style="color: #61afef;">require</span>(<span style="color: #98c379;">'stackly'</span>)(<span style="color: #98c379;">'sk_test_123'</span>);<br><br>
+                    <span style="color: #c678dd;">const</span> sub = <span style="color: #c678dd;">await</span> stripe.subscriptions.<span style="color: #61afef;">create</span>({<br>
+                    &nbsp;&nbsp;customer: <span style="color: #98c379;">'cus_xyz987'</span>,<br>
+                    &nbsp;&nbsp;items: [{ price: <span style="color: #98c379;">'price_pro_monthly'</span> }],<br>
+                    });<br>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="container" style="padding: 6rem 2rem; text-align: center;" data-aos="zoom-in">
+        <h2>Need direct help?</h2>
+        <br>
+        <a href="404.html" class="btn btn-primary">Contact Support</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col footer-brand">
+                    <img src="assets/Brand-logo.webp" alt="STACKLY Logo">
+                    <p>Empowering businesses with intelligent billing and revenue management solutions.</p>
+                    <div class="social-links">
+                        <a href="404.html"><img src="assets/footer-socialmedia-icon--facebook.webp" alt="Facebook"></a>
+                        <a href="404.html"><img src="assets/footer-socialmedia-icon-twitter.webp" alt="Twitter"></a>
+                        <a href="404.html"><img src="assets/footer-socialmedia-icon-instagram.webp" alt="Instagram"></a>
+                        <a href="404.html"><img src="assets/footer-socialmedia-icon-linkedin.webp" alt="LinkedIn"></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="404.html">About Us</a></li>
+                        <li><a href="404.html">Careers</a></li>
+                        <li><a href="404.html">Partners</a></li>
+                        <li><a href="Contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="BillingSolutions.html">Billing Solutions</a></li>
+                        <li><a href="Pricing.html">Pricing</a></li>
+                        <li><a href="Resources.html">Resources</a></li>
+                        <li><a href="Contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Newsletter</h4>
+                    <p>Subscribe for product updates.</p>
+                    <form class="newsletter-form redirect-404">
+                        <input type="email" placeholder="Email Address" required>
+                        <button type="submit" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 STACKLY. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="404.html">Privacy Policy</a>
+                    <a href="404.html">Terms of Service</a>
+                    <a href="404.html">Support</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+</body>
+</html>

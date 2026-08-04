@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing - STACKLY</title>
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        .page-hero {
+            padding: 150px 2rem 80px; text-align: left;
+            background: linear-gradient(180deg, var(--bg-dark) 0%, rgba(15,23,42,0.8) 100%), url('assets/pricing_cover.webp') center/cover no-repeat;
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .pricing-card { text-align: center; position: relative; }
+        .pricing-card.popular { border-color: var(--primary-color); transform: scale(1.05); }
+        .popular-badge {
+            position: absolute; top: -15px; left: 50%; transform: translateX(-50%);
+            background: var(--primary-color); color: var(--bg-dark);
+            padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: bold;
+        }
+        .price { font-size: 3rem; font-weight: 700; color: var(--primary-color); margin: 1.5rem 0; }
+        .pricing-list { list-style: none; margin-bottom: 2rem; text-align: left; }
+        .pricing-list li { margin-bottom: 0.8rem; display: flex; gap: 10px; align-items: center; }
+        .pricing-list i { color: var(--primary-color); }
+
+        /* Table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 3rem;
+            background: var(--bg-card);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .comparison-table th, .comparison-table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--glass-border);
+            text-align: center;
+        }
+        .comparison-table th { background: rgba(255,255,255,0.05); color: var(--secondary-color); font-weight: 600; }
+        .comparison-table td:first-child, .comparison-table th:first-child { text-align: left; }
+        .comparison-table i.fa-check { color: var(--primary-color); }
+        .comparison-table i.fa-minus { color: var(--text-muted); }
+
+        /* Accordion */
+        .accordion { max-width: 800px; margin: 3rem auto 0; }
+        .accordion-item {
+            background: var(--glass-bg); border: 1px solid var(--glass-border);
+            border-radius: 8px; margin-bottom: 1rem; overflow: hidden;
+        }
+        .accordion-header {
+            padding: 1.5rem; cursor: pointer; display: flex;
+            justify-content: space-between; align-items: center; font-weight: 600;
+        }
+        .accordion-content {
+            padding: 0 1.5rem; max-height: 0; overflow: hidden; transition: max-height 0.3s ease;
+        }
+        .accordion-content p { padding-bottom: 1.5rem; }
+        .accordion-item.active .accordion-content { max-height: 200px; }
+        .accordion-item.active .accordion-header { color: var(--primary-color); }
+        
+        @media (max-width: 768px) {
+            .pricing-card.popular { transform: none; }
+            .comparison-table { display: block; overflow-x: auto; }
+            .pricing-grid { grid-template-columns: 1fr; }
+            .page-hero { text-align: center; }
+        }
+        @media (max-width: 768px) { .cards-grid { grid-template-columns: 1fr !important; } }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="nav-brand">
+                <img src="assets/Brand-logo.webp" alt="STACKLY">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="BillingSolutions.html">Billing Solutions</a></li>
+                <li><a href="Pricing.html" class="active">Pricing</a></li>
+                <li><a href="Resources.html">Resources</a></li>
+                <li><a href="Contact.html">Contact</a></li>
+                <li class="mobile-only"><a href="Login.html" class="btn btn-primary" style="padding: 0.5rem 1rem; color: #0f172a;">Login</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="Login.html" class="btn btn-primary desktop-only" style="padding: 0.5rem 1.5rem; color: #0f172a; border-radius: 20px;">Login</a>
+                <button class="hamburger">&#9776;</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="page-hero container">
+        <h1 data-aos="fade-up">Flexible Pricing</h1>
+        <p data-aos="fade-up" data-aos-delay="100">Plans that scale with your business.</p>
+    </section>
+
+    <!-- Pricing Cards -->
+    <section class="container" style="padding: 2rem 2rem 6rem;">
+        <div class="pricing-grid">
+            <div class="glass-card pricing-card" data-aos="fade-up" data-aos-delay="100">
+                <h3>Starter</h3>
+                <div class="price">$0<span>/mo</span></div>
+                <ul class="pricing-list">
+                    <li><i class="fa-solid fa-check"></i> Up to 50 Invoices</li>
+                    <li><i class="fa-solid fa-check"></i> Basic Reports</li>
+                    <li><i class="fa-solid fa-check"></i> Email Support</li>
+                </ul>
+                <a href="Signup.html" class="btn btn-outline" style="width:100%;">Get Started</a>
+            </div>
+            
+            <div class="glass-card pricing-card popular" data-aos="fade-up" data-aos-delay="200">
+                <div class="popular-badge">Most Popular</div>
+                <h3>Business</h3>
+                <div class="price">$49<span>/mo</span></div>
+                <ul class="pricing-list">
+                    <li><i class="fa-solid fa-check"></i> Unlimited Invoices</li>
+                    <li><i class="fa-solid fa-check"></i> Advanced Analytics</li>
+                    <li><i class="fa-solid fa-check"></i> Priority Support</li>
+                    <li><i class="fa-solid fa-check"></i> Custom Branding</li>
+                </ul>
+                <a href="Signup.html" class="btn btn-primary" style="width:100%;">Get Started</a>
+            </div>
+
+            <div class="glass-card pricing-card" data-aos="fade-up" data-aos-delay="300">
+                <h3>Enterprise</h3>
+                <div class="price">Custom</div>
+                <ul class="pricing-list">
+                    <li><i class="fa-solid fa-check"></i> Dedicated Account Manager</li>
+                    <li><i class="fa-solid fa-check"></i> Custom Integration</li>
+                    <li><i class="fa-solid fa-check"></i> 24/7 Phone Support</li>
+                    <li><i class="fa-solid fa-check"></i> SLA Guarantee</li>
+                </ul>
+                <a href="404.html" class="btn btn-outline" style="width:100%;">Contact Sales</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Comparison -->
+    <section class="container" style="padding: 4rem 2rem;">
+        <h2 class="text-center" data-aos="fade-up">Compare Features</h2>
+        <div data-aos="fade-up" data-aos-delay="200">
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Starter</th>
+                        <th>Business</th>
+                        <th>Enterprise</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Invoices per month</td>
+                        <td>50</td>
+                        <td>Unlimited</td>
+                        <td>Unlimited</td>
+                    </tr>
+                    <tr>
+                        <td>Payment Gateways</td>
+                        <td>1</td>
+                        <td>3</td>
+                        <td>Unlimited</td>
+                    </tr>
+                    <tr>
+                        <td>Custom Branding</td>
+                        <td><i class="fa-solid fa-minus"></i></td>
+                        <td><i class="fa-solid fa-check"></i></td>
+                        <td><i class="fa-solid fa-check"></i></td>
+                    </tr>
+                    <tr>
+                        <td>API Access</td>
+                        <td><i class="fa-solid fa-minus"></i></td>
+                        <td><i class="fa-solid fa-check"></i></td>
+                        <td><i class="fa-solid fa-check"></i></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    
+    <!-- Add-on Services -->
+    <section class="container" style="padding: 4rem 2rem;">
+        <div class="text-center" data-aos="fade-up">
+            <h2>Optional Add-Ons</h2>
+            <p>Customize your plan with premium modules built for scale.</p>
+        </div>
+        <div class="cards-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem;">
+            <div class="glass-card" data-aos="fade-up" data-aos-delay="100" style="padding: 2rem; text-align: left;">
+                <h3 style="margin-bottom: 0.5rem;"><i class="fa-solid fa-headset" style="color: var(--primary-color); margin-right: 10px;"></i> Dedicated Support</h3>
+                <div style="font-size: 1.5rem; color: var(--primary-color); font-weight: bold; margin-bottom: 1rem;">+$99<span style="font-size: 1rem; color: var(--text-muted); font-weight: normal;">/mo</span></div>
+                <p style="font-size: 0.9rem; margin-bottom: 1rem;">Skip the queue. Get a dedicated account manager and guaranteed 1-hour SLA response times.</p>
+                <a href="#" style="color: var(--primary-color); text-decoration: none; font-weight: 500;">Add to plan &rarr;</a>
+            </div>
+            <div class="glass-card" data-aos="fade-up" data-aos-delay="200" style="padding: 2rem; text-align: left;">
+                <h3 style="margin-bottom: 0.5rem;"><i class="fa-solid fa-palette" style="color: var(--primary-color); margin-right: 10px;"></i> White-Labeling</h3>
+                <div style="font-size: 1.5rem; color: var(--primary-color); font-weight: bold; margin-bottom: 1rem;">+$49<span style="font-size: 1rem; color: var(--text-muted); font-weight: normal;">/mo</span></div>
+                <p style="font-size: 0.9rem; margin-bottom: 1rem;">Remove STACKLY branding from all customer-facing invoices, portals, and emails.</p>
+                <a href="#" style="color: var(--primary-color); text-decoration: none; font-weight: 500;">Add to plan &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enterprise Custom Solutions -->
+    <section class="container" style="padding: 2rem;">
+        <div class="glass-card" data-aos="zoom-in" style="padding: 4rem 2rem; text-align: center; background: linear-gradient(135deg, rgba(30,41,59,0.9), rgba(46,204,113,0.1)); border-color: rgba(46,204,113,0.3);">
+            <h2 style="margin-bottom: 1rem;">Need an Enterprise Solution?</h2>
+            <p style="max-width: 600px; margin: 0 auto 2rem;">Processing over $1M per month? Let's build a custom pricing model with volume discounts, multi-subsidiary management, and custom API limits.</p>
+            <a href="404.html" class="btn btn-primary">Contact Sales</a>
+        </div>
+    </section>
+
+    <!-- Trust & Guarantee -->
+    <section class="container" style="padding: 4rem 2rem; text-align: center;">
+        <div data-aos="fade-up" style="display: inline-flex; align-items: center; gap: 1rem; background: rgba(255,255,255,0.05); padding: 1rem 2rem; border-radius: 50px; border: 1px solid var(--glass-border);">
+            <i class="fa-solid fa-shield-halved" style="color: var(--primary-color); font-size: 2rem;"></i>
+            <div style="text-align: left;">
+                <h4 style="margin: 0; font-size: 1.1rem;">30-Day Money-Back Guarantee</h4>
+                <p style="margin: 0; font-size: 0.85rem; color: var(--text-muted);">Cancel anytime. No questions asked.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Accordion -->
+    <section class="container" style="padding: 4rem 2rem;">
+        <h2 class="text-center" data-aos="fade-up">Pricing FAQ</h2>
+        <div class="accordion" data-aos="fade-up" data-aos-delay="100">
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    Can I switch plans later? <i class="fa-solid fa-chevron-down transition"></i>
+                </div>
+                <div class="accordion-content">
+                    <p>Yes, you can upgrade or downgrade at any time. Prorated charges will apply automatically.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    Are there any hidden transaction fees? <i class="fa-solid fa-chevron-down transition"></i>
+                </div>
+                <div class="accordion-content">
+                    <p>STACKLY charges 0% transaction fees. However, your payment gateway (e.g. Stripe) will charge their standard rates.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="container" style="padding: 6rem 2rem; text-align: center;" data-aos="zoom-in">
+        <h2>Start automating your billing today.</h2>
+        <br>
+        <a href="Signup.html" class="btn btn-primary">Start Free Trial</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col footer-brand">
+                    <img src="assets/Brand-logo.webp" alt="STACKLY Logo">
+                    <p>Empowering businesses with intelligent billing and revenue management solutions.</p>
+                    <div class="social-links">
+                        <a href="404.html"><img src="assets/footer-socialmedia-icon--facebook.webp" alt="Facebook"></a>
+                        <a href="404.html"><img src="assets/footer-socialmedia-icon-twitter.webp" alt="Twitter"></a>
+                        <a href="404.html"><img src="assets/footer-socialmedia-icon-instagram.webp" alt="Instagram"></a>
+                        <a href="404.html"><img src="assets/footer-socialmedia-icon-linkedin.webp" alt="LinkedIn"></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="404.html">About Us</a></li>
+                        <li><a href="404.html">Careers</a></li>
+                        <li><a href="404.html">Partners</a></li>
+                        <li><a href="Contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="BillingSolutions.html">Billing Solutions</a></li>
+                        <li><a href="Pricing.html">Pricing</a></li>
+                        <li><a href="Resources.html">Resources</a></li>
+                        <li><a href="Contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Newsletter</h4>
+                    <p>Subscribe for product updates.</p>
+                    <form class="newsletter-form redirect-404">
+                        <input type="email" placeholder="Email Address" required>
+                        <button type="submit" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 STACKLY. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="404.html">Privacy Policy</a>
+                    <a href="404.html">Terms of Service</a>
+                    <a href="404.html">Support</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+    <script>
+        // Accordion Logic
+        document.querySelectorAll('.accordion-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const item = header.parentElement;
+                document.querySelectorAll('.accordion-item').forEach(other => {
+                    if (other !== item) other.classList.remove('active');
+                });
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

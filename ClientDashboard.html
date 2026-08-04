@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Dashboard - STACKLY</title>
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body class="dashboard-body">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <img src="assets/Brand-logo.webp" alt="Logo">
+            
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="ClientDashboard.html" class="active"><i class="fa-solid fa-house"></i> Home</a></li>
+            <li><a href="ClientInvoices.html"><i class="fa-solid fa-file-invoice"></i> My Invoices</a></li>
+            <li><a href="ClientPaymentMethods.html"><i class="fa-solid fa-credit-card"></i> Payment Methods</a></li>
+            <li><a href="ClientSubscriptions.html"><i class="fa-solid fa-rotate"></i> Subscriptions</a></li>
+            <li><a href="ClientProfile.html"><i class="fa-solid fa-user"></i> Profile</a></li>
+        </ul>
+        <div class="sidebar-footer">
+            <a href="#" id="logoutBtn" style="color: var(--text-muted); text-decoration: none; display: flex; align-items: center; gap: 10px;">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Wrapper -->
+    <div class="main-wrapper">
+        <!-- Topbar -->
+        <header class="topbar">
+            <button class="menu-toggle"><i class="fa-solid fa-bars"></i></button>
+            <div style="flex:1;"></div>
+            <div class="user-profile">
+                <!-- Placeholder avatar -->
+                <div style="width:40px; height:40px; border-radius:50%; background:var(--primary-color); display:flex; align-items:center; justify-content:center; color:var(--bg-dark); font-weight:bold;">C</div>
+                <div class="user-info">
+                    <h4>John Doe</h4>
+                    <p>Acme Corp</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <h2 style="margin-bottom: 2rem;" data-aos="fade-right">Welcome back!</h2>
+
+            <!-- Original Stats (Updated with AOS) -->
+            <div class="stat-grid">
+                <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stat-icon"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+                    <div class="stat-details">
+                        <p>Amount Due</p>
+                        <h3 style="color: #f1c40f;">$450.00</h3>
+                    </div>
+                </div>
+                <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-icon"><i class="fa-solid fa-check-double"></i></div>
+                    <div class="stat-details">
+                        <p>Total Paid</p>
+                        <h3>$12,400.00</h3>
+                    </div>
+                </div>
+                <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-icon"><i class="fa-solid fa-rotate"></i></div>
+                    <div class="stat-details">
+                        <p>Active Subscription</p>
+                        <h3>Pro Plan</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Original Invoices Table (Updated with AOS) -->
+            <div class="table-container" data-aos="fade-up" data-aos-delay="400">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                    <h3 style="margin: 0;">My Invoices</h3>
+                    <a href="404.html" class="btn btn-outline" style="padding: 0.4rem 1rem; font-size: 0.85rem;">View All</a>
+                </div>
+                <div style="overflow-x: auto;">
+                    <div style="width:100%; overflow-x:auto;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Invoice ID</th>
+                                <th>Description</th>
+                                <th>Amount</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#INV-00125</td>
+                                <td>Monthly Pro Subscription</td>
+                                <td>$450.00</td>
+                                <td>Aug 01, 2026</td>
+                                <td><span class="status pending">Pending</span></td>
+                                <td><a href="404.html" style="color:var(--primary-color); text-decoration:none;"><i class="fa-solid fa-credit-card"></i> Pay Now</a></td>
+                            </tr>
+                            <tr>
+                                <td>#INV-00110</td>
+                                <td>Monthly Pro Subscription</td>
+                                <td>$450.00</td>
+                                <td>Jul 01, 2026</td>
+                                <td><span class="status paid">Paid</span></td>
+                                <td><a href="404.html" style="color:var(--text-muted);"><i class="fa-solid fa-download"></i> PDF</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                </div>
+            </div>
+
+            <!-- 1. Quick Links Panel -->
+            <div class="table-container" style="margin-top: 2rem;" data-aos="fade-up">
+                <h3>Quick Actions</h3>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
+                    <a href="404.html" class="btn btn-primary"><i class="fa-solid fa-credit-card"></i> Pay Balance</a>
+                    <a href="404.html" class="btn btn-outline"><i class="fa-solid fa-pen"></i> Update Payment Method</a>
+                    <a href="404.html" class="btn btn-outline"><i class="fa-solid fa-arrow-up"></i> Upgrade Plan</a>
+                </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+                <!-- 2. Recent Account Activity -->
+                <div class="table-container" data-aos="fade-up">
+                    <h3>Recent Activity</h3>
+                    <ul style="list-style: none; padding: 0; margin-top: 1rem;">
+                        <li style="margin-bottom: 1rem; border-left: 2px solid var(--primary-color); padding-left: 10px;">
+                            <p style="margin: 0; font-size: 0.9rem;">Invoice #INV-00110 Paid</p>
+                            <small style="color: var(--text-muted);">Jul 02, 2026</small>
+                        </li>
+                        <li style="border-left: 2px solid var(--primary-color); padding-left: 10px;">
+                            <p style="margin: 0; font-size: 0.9rem;">Profile Updated</p>
+                            <small style="color: var(--text-muted);">Jun 28, 2026</small>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 3. Usage Metrics -->
+                <div class="table-container" data-aos="fade-up">
+                    <h3>API Usage</h3>
+                    <div style="margin-top: 1rem;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span>Requests</span><span>85,000 / 100k</span>
+                        </div>
+                        <div style="width: 100%; height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; margin-bottom: 1rem;">
+                            <div style="width: 85%; height: 100%; background: var(--primary-color); border-radius: 4px;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Current Plan Summary -->
+                <div class="table-container" data-aos="fade-up">
+                    <h3>Your Plan</h3>
+                    <div style="background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 8px; margin-top: 1rem; border: 1px solid var(--primary-color);">
+                        <h2 style="color: var(--primary-color); margin: 0 0 0.5rem 0;">Pro Tier</h2>
+                        <p style="color: var(--text-muted); margin-bottom: 1rem;">Next billing date: <strong>Sep 01, 2026</strong></p>
+                        <a href="404.html" style="color: var(--text-main); font-weight: bold;"><i class="fa-solid fa-arrow-right"></i> Manage Subscription</a>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/dashboard.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init({ duration: 800, once: true });</script>
+</body>
+</html>

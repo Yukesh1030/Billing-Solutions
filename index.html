@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STACKLY - Smart Billing Solutions</title>
+    <meta name="description" content="Automate invoicing, manage subscriptions, and gain complete financial visibility with STACKLY.">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Specific Page Styles */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-top: 80px;
+            overflow: hidden;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            background: linear-gradient(to right, var(--bg-dark) 40%, rgba(15,23,42,0.6)), url('assets/home_cover.webp') center/cover no-repeat;
+        }
+        
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        /* Dashboard Illustration (CSS Based) */
+        .dashboard-illustration {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            perspective: 1000px;
+        }
+
+        .dash-card {
+            position: absolute;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 1rem;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .card-main {
+            width: 80%;
+            height: 250px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotateY(-10deg) rotateX(5deg);
+        }
+
+        .card-float-1 {
+            width: 40%;
+            top: 10%;
+            right: 5%;
+            transform: translateZ(50px);
+        }
+
+        .card-float-2 {
+            width: 45%;
+            bottom: 15%;
+            left: 0;
+            transform: translateZ(80px);
+        }
+
+        /* Carousel */
+        .logo-carousel {
+            background: var(--bg-card);
+            padding: 3rem 2rem;
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+        }
+        
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 20s linear infinite;
+        }
+        
+        .logo-carousel:hover .marquee-content {
+            animation-play-state: paused;
+        }
+        
+        .marquee-content span {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin: 0 3rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Features */
+        .features-section {
+            padding: 6rem 2rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            text-align: center;
+        }
+        
+        .feature-card i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .feature-card:hover i {
+            transform: rotateY(180deg);
+        }
+
+        /* Split Section */
+        .split-section {
+            padding: 6rem 2rem;
+            background: var(--bg-card);
+        }
+
+        .split-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .split-list li {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .split-list i {
+            color: var(--primary-color);
+        }
+
+        .biz-illustration {
+            width: 100%;
+            height: 400px;
+            background: url('assets/ai_growth.webp') center/cover no-repeat;
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Timeline */
+        .timeline-section {
+            padding: 6rem 2rem;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 3rem auto 0;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background: var(--primary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--bg-dark);
+            border: 4px solid var(--primary-color);
+            border-radius: 50%;
+            top: 20px;
+            right: -10px;
+            z-index: 1;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-item:nth-child(even)::after {
+            left: -10px;
+        }
+
+        /* Dashboard Preview */
+        .dash-preview {
+            padding: 6rem 2rem;
+            background: var(--bg-card);
+            text-align: center;
+        }
+
+        .dash-img-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 3rem auto 0;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--glass-border);
+            transition: var(--transition);
+        }
+        
+        .dash-img-container:hover {
+            transform: scale(1.02);
+            box-shadow: 0 20px 40px rgba(46,204,113,0.2);
+        }
+
+        .mock-dash {
+            width: 100%;
+            height: 500px;
+            background: #111827;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 2rem;
+        }
+
+        .mock-sidebar { background: url('assets/mock_sidebar.webp') center/cover no-repeat; border-radius: 8px; }
+        .mock-main { display: flex; flex-direction: column; gap: 1rem; }
+        .mock-header { height: 60px; background: url('assets/mock_header.webp') center/cover no-repeat; border-radius: 8px; }
+        .mock-widgets { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }
+        .mock-widget { height: 100px; background: #1f2937; border-radius: 8px; }
+        .mock-chart { flex: 1; background: url('assets/mock_chart.webp') center/cover no-repeat; border-radius: 8px; }
+
+        /* Success Stories */
+        .success-section { padding: 6rem 2rem; }
+        
+        .slider-container {
+            position: relative;
+            max-width: 800px;
+            margin: 3rem auto 0;
+            height: 300px;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0; left: 0; width: 100%;
+        }
+
+        /* Pricing */
+        .pricing-section { padding: 6rem 2rem; background: var(--bg-card); }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .pricing-card {
+            text-align: center;
+            position: relative;
+        }
+
+        .pricing-card.popular {
+            border-color: var(--primary-color);
+            transform: scale(1.05);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary-color);
+            color: var(--bg-dark);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .price { font-size: 3rem; font-weight: 700; color: var(--primary-color); margin: 1.5rem 0; }
+        
+        .pricing-list { list-style: none; margin-bottom: 2rem; text-align: left; }
+        .pricing-list li { margin-bottom: 0.8rem; display: flex; gap: 10px; align-items: center; }
+        .pricing-list i { color: var(--primary-color); }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 8rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            bottom: -50%; left: -10%; right: -10%; top: -50%;
+            background: radial-gradient(circle, rgba(46,204,113,0.15) 0%, transparent 60%);
+            z-index: -1;
+        }
+
+        @media (max-width: 768px) {
+            .hero-text { text-align: center; }
+            .hero-btns { justify-content: center; }
+            .hero-grid, .split-grid { grid-template-columns: 1fr; }
+            .timeline::after { left: 31px; }
+            .timeline-item { width: 100%; padding-left: 70px; }
+            .timeline-item:nth-child(even) { left: 0; }
+            .timeline-item::after { left: 21px; }
+            .pricing-card.popular { transform: none; }
+            .dash-img-container { overflow-x: hidden; }
+            .mock-dash { grid-template-columns: 1fr; height: auto; padding: 1rem; }
+            .mock-widgets { grid-template-columns: 1fr; }
+            .features-grid { grid-template-columns: 1fr; }
+            .dashboard-illustration { transform: scale(0.8); transform-origin: left center; margin-top: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="nav-brand">
+                <img src="assets/Brand-logo.webp" alt="STACKLY">
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="BillingSolutions.html">Billing Solutions</a></li>
+                <li><a href="Pricing.html">Pricing</a></li>
+                <li><a href="Resources.html">Resources</a></li>
+                <li><a href="Contact.html">Contact</a></li>
+                <li class="mobile-only"><a href="Login.html" class="btn btn-primary" style="padding: 0.5rem 1rem; color: #0f172a;">Login</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="Login.html" class="btn btn-primary desktop-only" style="padding: 0.5rem 1.5rem; color: #0f172a; border-radius: 20px;">Login</a>
+                <button class="hamburger">&#9776;</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Section 1: Hero -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="container hero-grid">
+            <div class="hero-text">
+                <h1 class="hero-title">Simplify Your Billing. <br><span class="text-primary">Accelerate</span> Your Business.</h1>
+                <p class="hero-content">Automate invoicing, manage subscriptions, accept secure online payments, and gain complete financial visibility with STACKLY's intelligent billing platform.</p>
+                <div class="hero-btns">
+                    <a href="Signup.html" class="btn btn-primary">Start Free Trial</a>
+                    <a href="404.html" class="btn btn-outline"><i class="fa-solid fa-play"></i> Watch Demo</a>
+                </div>
+            </div>
+            <div class="dashboard-illustration float-element">
+                <div class="dash-card card-main">
+                    <div style="font-weight:600; margin-bottom:10px;">Revenue Overview</div>
+                    <div style="width:100%; height:70%; background:linear-gradient(to top, rgba(46,204,113,0.2), transparent); border-bottom: 2px solid var(--primary-color);"></div>
+                </div>
+                <div class="dash-card card-float-1 float-element">
+                    <div style="font-size:0.8rem; color:var(--text-muted);">Total Invoices</div>
+                    <div style="font-size:1.5rem; font-weight:700; color:var(--primary-color);">$24,500</div>
+                </div>
+                <div class="dash-card card-float-2 float-element">
+                    <div style="font-size:0.8rem; color:var(--text-muted);">Active Subs</div>
+                    <div style="font-size:1.5rem; font-weight:700;">1,284</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Logo Carousel -->
+    <section class="logo-carousel">
+        <div class="marquee-content">
+            <!-- Duplicated for infinite effect -->
+            <span><i class="fa-solid fa-building"></i> Startups</span>
+            <span><i class="fa-solid fa-industry"></i> SMEs</span>
+            <span><i class="fa-solid fa-building-user"></i> Enterprises</span>
+            <span><i class="fa-solid fa-store"></i> Retail</span>
+            <span><i class="fa-solid fa-notes-medical"></i> Healthcare</span>
+            <span><i class="fa-solid fa-graduation-cap"></i> Education</span>
+            
+            <span><i class="fa-solid fa-building"></i> Startups</span>
+            <span><i class="fa-solid fa-industry"></i> SMEs</span>
+            <span><i class="fa-solid fa-building-user"></i> Enterprises</span>
+            <span><i class="fa-solid fa-store"></i> Retail</span>
+            <span><i class="fa-solid fa-notes-medical"></i> Healthcare</span>
+            <span><i class="fa-solid fa-graduation-cap"></i> Education</span>
+        </div>
+    </section>
+
+    <!-- Section 3: Smart Billing Features -->
+    <section class="features-section container">
+        <div class="text-center" data-aos="fade-up">
+            <h2>Smart Billing Features</h2>
+            <p>Everything you need to manage your business finances in one place.</p>
+        </div>
+        <div class="features-grid">
+            <div class="glass-card feature-card" data-aos="fade-up" data-aos-delay="100">
+                <i class="fa-solid fa-file-invoice"></i>
+                <h3>Invoice Automation</h3>
+                <p>Generate and send invoices automatically based on your schedule.</p>
+            </div>
+            <div class="glass-card feature-card" data-aos="fade-up" data-aos-delay="200">
+                <i class="fa-solid fa-rotate-left"></i>
+                <h3>Subscription Billing</h3>
+                <p>Manage flexible subscription plans and recurring billing cycles.</p>
+            </div>
+            <div class="glass-card feature-card" data-aos="fade-up" data-aos-delay="300">
+                <i class="fa-solid fa-credit-card"></i>
+                <h3>Recurring Payments</h3>
+                <p>Accept cards, ACH, and wallets with automated retry logic.</p>
+            </div>
+            <div class="glass-card feature-card" data-aos="fade-up" data-aos-delay="400">
+                <i class="fa-solid fa-file-signature"></i>
+                <h3>GST Compliance</h3>
+                <p>Stay compliant with automated tax calculations and reports.</p>
+            </div>
+            <div class="glass-card feature-card" data-aos="fade-up" data-aos-delay="500">
+                <i class="fa-solid fa-chart-line"></i>
+                <h3>Payment Tracking</h3>
+                <p>Real-time updates on invoice views and payment status.</p>
+            </div>
+            <div class="glass-card feature-card" data-aos="fade-up" data-aos-delay="600">
+                <i class="fa-solid fa-chart-pie"></i>
+                <h3>Financial Reports</h3>
+                <p>Gain insights with beautiful, easy-to-understand analytics.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Why STACKLY -->
+    <section class="split-section">
+        <div class="container split-grid">
+            <div class="biz-illustration float-element" data-aos="fade-right">
+                <i class="fa-solid fa-chart-network" style="font-size: 5rem; color: var(--primary-color); opacity: 0.5;"></i>
+                <div style="position:absolute; font-weight:700; font-size:1.5rem;">AI Powered Growth</div>
+            </div>
+            <div data-aos="fade-left">
+                <h2>Why Businesses Choose STACKLY</h2>
+                <p>We provide the infrastructure to scale your revenue operations without the headache.</p>
+                <ul class="split-list">
+                    <li><i class="fa-solid fa-shield-halved"></i> Secure Transactions & PCI Compliance</li>
+                    <li><i class="fa-solid fa-cloud"></i> 100% Cloud Based & Always Available</li>
+                    <li><i class="fa-solid fa-brain"></i> AI Insights for Revenue Optimization</li>
+                    <li><i class="fa-solid fa-bolt"></i> Fast Payments & Next-Day Payouts</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: How It Works -->
+    <section class="timeline-section container">
+        <div class="text-center" data-aos="fade-up">
+            <h2>How It Works</h2>
+            <p>From invoice creation to money in bank in 5 simple steps.</p>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item" data-aos="fade-right">
+                <div class="glass-card">
+                    <h3>1. Create Invoice</h3>
+                    <p>Draft beautiful invoices in seconds.</p>
+                </div>
+            </div>
+            <div class="timeline-item" data-aos="fade-left">
+                <div class="glass-card">
+                    <h3>2. Send Invoice</h3>
+                    <p>Deliver via email, SMS, or WhatsApp.</p>
+                </div>
+            </div>
+            <div class="timeline-item" data-aos="fade-right">
+                <div class="glass-card">
+                    <h3>3. Receive Payment</h3>
+                    <p>Clients pay via 50+ supported gateways.</p>
+                </div>
+            </div>
+            <div class="timeline-item" data-aos="fade-left">
+                <div class="glass-card">
+                    <h3>4. Generate Reports</h3>
+                    <p>Automatic reconciliation and ledger updates.</p>
+                </div>
+            </div>
+            <div class="timeline-item" data-aos="fade-right">
+                <div class="glass-card">
+                    <h3>5. Business Growth</h3>
+                    <p>Scale faster with predictable cash flow.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 6: Dashboard Preview -->
+    <section class="dash-preview">
+        <div class="container">
+            <div data-aos="fade-up">
+                <h2>Powerful Dashboard Preview</h2>
+                <p>Experience complete financial control.</p>
+            </div>
+            <div class="dash-img-container" data-aos="zoom-in" data-aos-delay="200">
+                <!-- CSS Mockup of Dashboard -->
+                <div class="mock-dash">
+                    <div class="mock-sidebar"></div>
+                    <div class="mock-main">
+                        <div class="mock-header"></div>
+                        <div class="mock-widgets">
+                            <div class="mock-widget">
+                                <div style="padding:1rem; color:var(--text-muted); font-size:0.8rem;">Revenue</div>
+                                <div style="padding:0 1rem; color:white; font-size:1.5rem; font-weight:bold;">$124,500</div>
+                            </div>
+                            <div class="mock-widget">
+                                <div style="padding:1rem; color:var(--text-muted); font-size:0.8rem;">Invoices</div>
+                                <div style="padding:0 1rem; color:white; font-size:1.5rem; font-weight:bold;">842</div>
+                            </div>
+                            <div class="mock-widget">
+                                <div style="padding:1rem; color:var(--text-muted); font-size:0.8rem;">Customers</div>
+                                <div style="padding:0 1rem; color:white; font-size:1.5rem; font-weight:bold;">1,204</div>
+                            </div>
+                        </div>
+                        <div class="mock-chart"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 7: Success Stories -->
+    <section class="success-section container">
+        <div class="text-center" data-aos="fade-up">
+            <h2>Success Stories</h2>
+            <p>See how companies transform their billing with STACKLY.</p>
+        </div>
+        <div class="slider-container auto-slider" data-aos="fade-up" data-aos-delay="200">
+            <div class="glass-card slide">
+                <h3 class="text-primary">TechStart Inc.</h3>
+                <p><strong>Problem:</strong> Spending 20 hours a week on manual invoicing.</p>
+                <p><strong>Solution:</strong> Automated recurring billing with STACKLY.</p>
+                <p><strong>Result:</strong> Zero manual errors and 90% time saved.</p>
+            </div>
+            <div class="glass-card slide">
+                <h3 class="text-primary">Global Retail LLC</h3>
+                <p><strong>Problem:</strong> High payment failure rates across regions.</p>
+                <p><strong>Solution:</strong> Smart retry logic and multi-gateway routing.</p>
+                <p><strong>Result:</strong> 35% increase in successful payment recovery.</p>
+            </div>
+            <div class="glass-card slide">
+                <h3 class="text-primary">CloudNet Systems</h3>
+                <p><strong>Problem:</strong> Complex subscription upgrades/downgrades.</p>
+                <p><strong>Solution:</strong> Flexible subscription management APIs.</p>
+                <p><strong>Result:</strong> Seamless customer experience and 20% higher retention.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 8: Pricing Plans -->
+    <section class="pricing-section">
+        <div class="container text-center">
+            <h2 data-aos="fade-up">Simple, Transparent Pricing</h2>
+            <p data-aos="fade-up">Start for free, scale as you grow.</p>
+            
+            <div class="pricing-grid">
+                <div class="glass-card pricing-card" data-aos="fade-up" data-aos-delay="100">
+                    <h3>Starter</h3>
+                    <div class="price">$0<span>/mo</span></div>
+                    <ul class="pricing-list">
+                        <li><i class="fa-solid fa-check"></i> Up to 50 Invoices</li>
+                        <li><i class="fa-solid fa-check"></i> Basic Reports</li>
+                        <li><i class="fa-solid fa-check"></i> Email Support</li>
+                    </ul>
+                    <a href="Signup.html" class="btn btn-outline" style="width:100%;">Get Started</a>
+                </div>
+                
+                <div class="glass-card pricing-card popular" data-aos="fade-up" data-aos-delay="200">
+                    <div class="popular-badge">Most Popular</div>
+                    <h3>Professional</h3>
+                    <div class="price">$49<span>/mo</span></div>
+                    <ul class="pricing-list">
+                        <li><i class="fa-solid fa-check"></i> Unlimited Invoices</li>
+                        <li><i class="fa-solid fa-check"></i> Advanced Analytics</li>
+                        <li><i class="fa-solid fa-check"></i> Priority Support</li>
+                        <li><i class="fa-solid fa-check"></i> Custom Branding</li>
+                    </ul>
+                    <a href="Signup.html" class="btn btn-primary" style="width:100%;">Get Started</a>
+                </div>
+
+                <div class="glass-card pricing-card" data-aos="fade-up" data-aos-delay="300">
+                    <h3>Enterprise</h3>
+                    <div class="price">Custom</div>
+                    <ul class="pricing-list">
+                        <li><i class="fa-solid fa-check"></i> Dedicated Account Manager</li>
+                        <li><i class="fa-solid fa-check"></i> Custom Integration</li>
+                        <li><i class="fa-solid fa-check"></i> 24/7 Phone Support</li>
+                        <li><i class="fa-solid fa-check"></i> SLA Guarantee</li>
+                    </ul>
+                    <a href="404.html" class="btn btn-outline" style="width:100%;">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 9: CTA -->
+    <section class="cta-section container" data-aos="zoom-in">
+        <h2>Transform Your Billing Process Today</h2>
+        <p style="margin-bottom: 2rem;">Join thousands of businesses managing revenue on STACKLY.</p>
+        <div class="hero-btns" style="justify-content: center; margin-top:0;">
+            <a href="Signup.html" class="btn btn-primary">Get Started</a>
+            <a href="404.html" class="btn btn-outline">Book Demo</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col footer-brand">
+                    <img src="assets/Brand-logo.webp" alt="STACKLY Logo">
+                    <p>Empowering businesses with intelligent billing and revenue management solutions.</p>
+                    <div class="social-links">
+                        <a href="404.html"><img src="assets/footer-socialmedia-icon--facebook.webp" alt="Facebook"></a>
+                        <a href="404.html"><img src="assets/footer-socialmedia-icon-twitter.webp" alt="Twitter"></a>
+                        <a href="404.html"><img src="assets/footer-socialmedia-icon-instagram.webp" alt="Instagram"></a>
+                        <a href="404.html"><img src="assets/footer-socialmedia-icon-linkedin.webp" alt="LinkedIn"></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="404.html">About Us</a></li>
+                        <li><a href="404.html">Careers</a></li>
+                        <li><a href="404.html">Partners</a></li>
+                        <li><a href="Contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="BillingSolutions.html">Billing Solutions</a></li>
+                        <li><a href="Pricing.html">Pricing</a></li>
+                        <li><a href="Resources.html">Resources</a></li>
+                        <li><a href="Contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Newsletter</h4>
+                    <p>Subscribe for product updates.</p>
+                    <form class="newsletter-form redirect-404">
+                        <input type="email" placeholder="Email Address" required>
+                        <button type="submit" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 STACKLY. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="404.html">Privacy Policy</a>
+                    <a href="404.html">Terms of Service</a>
+                    <a href="404.html">Support</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+</body>
+</html>

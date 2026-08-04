@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscriptions - STACKLY</title>
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body class="dashboard-body">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <img src="assets/Brand-logo.webp" alt="Logo">
+            
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="ClientDashboard.html" ><i class="fa-solid fa-house"></i> Home</a></li>
+            <li><a href="ClientInvoices.html"><i class="fa-solid fa-file-invoice"></i> My Invoices</a></li>
+            <li><a href="ClientPaymentMethods.html"><i class="fa-solid fa-credit-card"></i> Payment Methods</a></li>
+            <li><a href="ClientSubscriptions.html" class="active"><i class="fa-solid fa-rotate"></i> Subscriptions</a></li>
+            <li><a href="ClientProfile.html"><i class="fa-solid fa-user"></i> Profile</a></li>
+        </ul>
+        <div class="sidebar-footer">
+            <a href="#" id="logoutBtn" style="color: var(--text-muted); text-decoration: none; display: flex; align-items: center; gap: 10px;">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Wrapper -->
+    <div class="main-wrapper">
+        <!-- Topbar -->
+        <header class="topbar">
+            <button class="menu-toggle"><i class="fa-solid fa-bars"></i></button>
+            <div style="flex:1;"></div>
+            <div class="user-profile">
+                <!-- Placeholder avatar -->
+                <div style="width:40px; height:40px; border-radius:50%; background:var(--primary-color); display:flex; align-items:center; justify-content:center; color:var(--bg-dark); font-weight:bold;">C</div>
+                <div class="user-info">
+                    <h4>John Doe</h4>
+                    <p>Acme Corp</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <h2 style="margin-bottom: 2rem;" data-aos="fade-right">Subscriptions</h2>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+                
+                <!-- 1. Plan Comparison -->
+                <div class="table-container" data-aos="fade-up">
+                    <h3 style="margin-bottom: 1rem;">Your Plan: Pro</h3>
+                    <div style="display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem;">
+                        <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--glass-border); padding-bottom: 0.5rem;">
+                            <span>Monthly Price</span><span>$450.00</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--glass-border); padding-bottom: 0.5rem;">
+                            <span>Included Seats</span><span>10</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between;">
+                            <span>API Requests</span><span>100k / month</span>
+                        </div>
+                        <a href="404.html" class="btn btn-primary" style="margin-top: 1rem; width: 100%; text-align: center;">Upgrade to Enterprise</a>
+                    </div>
+                </div>
+
+                <!-- 2. Add-Ons & Modules -->
+                <div class="table-container" data-aos="fade-up" data-aos-delay="100">
+                    <h3 style="margin-bottom: 1rem;">Active Add-Ons</h3>
+                    <ul style="list-style: none; padding: 0; margin-top: 1rem;">
+                        <li style="display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.05); padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+                            <span><i class="fa-solid fa-server" style="margin-right: 10px; color: var(--primary-color);"></i> Extra 50GB Storage</span>
+                            <span style="font-weight: bold;">$50/mo</span>
+                        </li>
+                        <li style="display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.05); padding: 1rem; border-radius: 8px;">
+                            <span><i class="fa-solid fa-headset" style="margin-right: 10px; color: var(--text-muted);"></i> Priority 24/7 Support</span>
+                            <a href="404.html" class="btn btn-outline" style="padding: 0.3rem 0.8rem; font-size: 0.8rem;">Add for $100</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- 3. Cancellation Options -->
+            <div class="table-container" style="margin-top: 2rem; border-left: 4px solid #f59e0b;" data-aos="fade-up">
+                <h3 style="color: #f59e0b;">Manage Subscription</h3>
+                <p style="color: var(--text-muted); margin-top: 1rem;">You can pause your subscription for up to 3 months without losing your data, or cancel completely.</p>
+                <div style="display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
+                    <a href="404.html" class="btn btn-outline">Pause Subscription</a>
+                    <a href="404.html" class="btn" style="background: transparent; border: 1px solid #ef4444; color: #ef4444;">Cancel Plan</a>
+                </div>
+            </div>
+
+            <!-- 4. Renewal History -->
+            <div class="table-container" style="margin-top: 2rem;" data-aos="fade-up">
+                <h3>Subscription History</h3>
+                <div style="overflow-x: auto; margin-top: 1rem;">
+                    <div style="width:100%; overflow-x:auto;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Event</th>
+                                <th>Details</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Jan 01, 2026</td>
+                                <td><span class="status paid">Plan Upgrade</span></td>
+                                <td>Basic -> Pro ($450/mo)</td>
+                            </tr>
+                            <tr>
+                                <td>Feb 15, 2025</td>
+                                <td><span class="status pending">Add-on Added</span></td>
+                                <td>Extra Storage ($50/mo)</td>
+                            </tr>
+                            <tr>
+                                <td>Aug 01, 2024</td>
+                                <td><span class="status paid">Account Created</span></td>
+                                <td>Basic Plan ($150/mo)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/dashboard.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init({ duration: 800, once: true });</script>
+</body>
+</html>
