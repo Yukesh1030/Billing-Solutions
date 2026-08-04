@@ -26,6 +26,8 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden !important;
+    width: 100%;
 }
 
 img {
@@ -38,7 +40,9 @@ body {
     background-color: var(--bg-dark);
     color: var(--text-main);
     line-height: 1.6;
-    overflow-x: hidden;
+    overflow-x: hidden !important;
+    width: 100%;
+    position: relative;
 }
 
 /* Utilities */
