@@ -347,6 +347,8 @@
             .hero-text { text-align: center; }
             .hero-btns { justify-content: center; }
             .hero-grid, .split-grid { grid-template-columns: 1fr; }
+            .split-grid > div { text-align: center; }
+            .split-list { display: inline-block; text-align: left; }
             .timeline::after { left: 31px; }
             .timeline-item { width: 100%; padding-left: 70px; }
             .timeline-item:nth-child(even) { left: 0; }
@@ -478,9 +480,11 @@
     <!-- Section 4: Why STACKLY -->
     <section class="split-section">
         <div class="container split-grid">
-            <div class="biz-illustration float-element" data-aos="fade-right">
-                <i class="fa-solid fa-chart-network" style="font-size: 5rem; color: var(--primary-color); opacity: 0.5;"></i>
-                <div style="font-weight:700; font-size:1.5rem; margin-top: 1rem; z-index: 1;">AI Powered Growth</div>
+            <div data-aos="fade-right">
+                <div class="biz-illustration float-element">
+                    <i class="fa-solid fa-chart-network" style="font-size: 5rem; color: var(--primary-color); opacity: 0.5;"></i>
+                    <div style="font-weight:700; font-size:1.5rem; margin-top: 1rem; z-index: 1;">AI Powered Growth</div>
+                </div>
             </div>
             <div data-aos="fade-left">
                 <h2>Why Businesses Choose STACKLY</h2>
