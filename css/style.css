@@ -281,8 +281,18 @@ footer {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 32px;
-    height: 32px;
+    width: 45px;
+    height: 45px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(46, 204, 113, 0.3);
+    transition: var(--transition);
+}
+
+.social-links a:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(46, 204, 113, 0.5);
+    background-color: var(--primary-light);
 }
 
 .social-links a img {
@@ -292,7 +302,7 @@ footer {
     max-height: 20px;
     object-fit: contain;
     margin: 0 !important;
-    opacity: 0.7;
+    opacity: 1;
     transition: var(--transition);
 }
 
@@ -308,11 +318,6 @@ footer {
     max-height: 22px;
     position: relative;
     top: 2px;
-}
-
-.social-links a:hover img {
-    opacity: 1;
-    transform: translateY(-3px);
 }
 
 .newsletter-form {
